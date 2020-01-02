@@ -1,4 +1,7 @@
-<div class="container">
+<?php  
+  include "dasboard/dasboard.php";
+?>
+<div class="container mt-5">
   <h1 class="text-center text-danger"><b>View Detail of Books</b></h1>
   <hr>
   <div class="row">

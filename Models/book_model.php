@@ -64,4 +64,19 @@ function m_booking_data($data)
     echo "error";
   }
 }
+
+
+function m_login(){
+  include "connection.php";
+  $username = $_POST['username'];
+  $password  = $_POST['password'];
+  $_SESSION['username'] = $username;
+  $_SESSION['password'] = $password;
+  $query = mysqli_query($conn, "SELECT * FROM user_name");
+  $login = [];
+  foreach($query as $result){
+    $login[] = $result;
+  }
+  return $login;
+}
 ?>

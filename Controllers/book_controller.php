@@ -3,7 +3,7 @@
    booking_book($data);
    function booking_book(&$data)
    {
-    $function = 'view';
+    $function = 'login';
     if(isset($_GET['action'])){
       $function = $_GET['action'];
     }
@@ -12,6 +12,21 @@
    function view(&$data){
            $data['view'] = model_view();
            $data['page'] = "book/view";
+     }
+   function login(&$data){
+           $data['page'] = "login/login";
+     }
+     function form_login(&$data){
+       session_start();
+       $data['loginForm'] = m_login($_POST);
+       foreach($data['loginForm'] as $key => $login){
+         if($login['username'] == $_SESSION['username'] && $login['password'] == $_SESSION['password']){
+           $data['page'] = "book/view";
+           $data['view'] = model_view();
+         }else{
+          $data['page'] = "login/login";
+         }
+       }
      }
      function detail(&$data){
       $data['detail'] = m_detail();

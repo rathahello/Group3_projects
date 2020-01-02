@@ -1,3 +1,6 @@
+<?php  
+  include "dasboard/dasboard.php";
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-3"></div>

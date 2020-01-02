@@ -1,3 +1,7 @@
+<?php  
+  include "dasboard/dasboard.php";
+?>
+
 <div class="container">
 <h1 class="text-center text-danger">List of users</h1>
     <hr>
