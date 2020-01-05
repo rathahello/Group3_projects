@@ -20,7 +20,6 @@ function m_detail()
   return $query;
 }
 
-
 function m_delete()
 {
   include "connection.php";
@@ -43,26 +42,21 @@ function m_add_data($data)
   return $result;
 }
 
-
 function m_booking_data($data)
 {
   include "connection.php";
+  $id = $_POST['id'];
   $username = $_POST['username'];
   $gender = $_POST['gender'];
   $email = $_POST['email'];
-  $bookName = $_POST['book'];
   $startDate = $_POST['startdate'];
   $enddate = $_POST['enddate'];
-  // var_dump($username);die();
-
-  $query = mysqli_query($conn, "INSERT INTO tbl_users(Username,gender,email,book_id,startdate,enddate) 
- VALUES ('$username', '$gender','$email','$bookName','$startDate','$enddate')");
-//  var_dump($query);die();
-  if($query){
-    header("Location: index1.php?action=view");
-  }else{
-    echo "error";
-  }
+  
+  $query ="INSERT INTO tbl_users(Username,gender,email,startdate,enddate,book_id) 
+ VALUES ('$username', '$gender','$email','$startDate','$enddate', 
+(SELECT book_id FROM tbl_book WHERE book_id = $id))";
+ $result =  mysqli_query($conn,$query);
+ return $result;
 }
 
 

@@ -1,7 +1,7 @@
 <?php
      function m_view() {
         include "connection.php";
-        $query="SELECT * FROM tbl_users";
+        $query ="SELECT * FROM tbl_users U INNER JOIN tbl_book B ON B.book_id = U.book_id";
         $result=mysqli_query($conn,$query);
         $rows=[];
         if($result && mysqli_num_rows($result) > 0){
@@ -20,30 +20,24 @@
         include "connection.php";
         $query = "INSERT INTO tbl_user(Username,gender,email,startDate,endDate)
                     VALUES('$fullname','$gender','$email','$startDate','$endDate')";
-                // var_dump($query);die();
         $result = mysqli_query($conn,$query);
-        // var_dump($result);die();
-        
         return $result;
     }
-
     function m_delete() {
         include "connection.php";
         $id = $_GET['id'];
-        $query = " DELETE FROM tbl_users WHERE user_id = '$id'";
-        // var_dump($query);die();
+        $query = "DELETE FROM tbl_users WHERE user_id = '$id'";
         $result = mysqli_query( $conn,$query);
         return $result;
     }
-
-    function m_detail(){
+    
+    function m_detail()
+    {
         include "connection.php";
         $id = $_GET['id'];
-        $query = mysqli_query($conn, "SELECT * FROM tbl_user WHERE user_id=$id");
+        $query =mysqli_query($conn,"SELECT * FROM tbl_users U INNER JOIN tbl_book B ON B.book_id = U.book_id WHERE user_id = $id");
         return $query;
-    
     }
-
 
     function m_booking()
     {
@@ -52,22 +46,4 @@
       $query = mysqli_query($conn, "SELECT * FROM tbl_users WHERE user_id=$id");
       return $query;
     }
-
-
-
-//     function m_booking_data($data)
-// {
-//   include "connection.php";
-//   $username = $_POST['username'];
-//   $gender = $_POST['gender'];
-//   $email = $_POST['email'];
-// //   $bookName = $_POST['book'];
-//   $startDate = $_POST['startdate'];
-//   $enddate = $_POST['enddate'];
-
-//   $query = mysqli_query($conn, "INSERT INTO tbl_users(Username,gender,email,startdate,enddate) 
-//  VALUES ('$username', '$gender','$email','$startDate','$enddate')");
-// //  var_dump($query);die();
-//   return $query;
-// }
 ?>

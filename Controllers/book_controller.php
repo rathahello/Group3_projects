@@ -28,10 +28,11 @@
          }
        }
      }
+     
      function detail(&$data){
       $data['detail'] = m_detail();
       $data['page'] = "book/detail";
-  }
+    }
 
   function delete(&$data){
     $delete_data = m_delete();
@@ -57,21 +58,18 @@ function form_data(&$data) {
   header("Location: index.php?action=$action");
 }
 
-
 function booking(&$data){
-  // $data['booking'] = m_booking();
-  // $data['detail'] = m_detail();
+  $data['booking'] = m_detail($_GET);
   $data['page'] = "book/booking";
 }
-
 function form_booking(&$data){
   $booking_data = m_booking_data($_POST);
   if($booking_data){
-    $action = "user/view";
+    $action = "view";
   }else{
-    $action = "booking";
+    $action = "book/booking";
   }
-  header("Location: index.php?action=$action");
+  header("Location: index1.php?action=$action");
 }
 
 ?>

@@ -1,5 +1,5 @@
 <?php  
-  include "dasboard/dasboard.php";
+  include "dashboard/dashboard.php";
 ?>
 <div class="container mt-5">
   <h1 class="text-center text-danger"><b>View Detail of Books</b></h1>
@@ -17,15 +17,15 @@
           <td class="content"><?php echo $row['book_id']; ?></td>
         </tr>
         <tr>
-          <th class="header-table">Fullname</th>
+          <th class="header-table">Title</th>
           <td class="content"><?php echo $row['title']; ?></td>
         </tr>
         <tr>
-          <th class="header-table">Class</th>
+          <th class="header-table">Type</th>
           <td class="content"><?php echo $row['type'];?></td>
         </tr>
         <tr>
-          <th class="header-table">Subject</th>
+          <th class="header-table">Description</th>
           <td class="content"><?php echo $row['description']; ?></td>
         </tr>
       <?php

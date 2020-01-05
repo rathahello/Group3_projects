@@ -1,8 +1,8 @@
 
 <?php  
-  include "dasboard/dasboard.php";
+  include "dashboard/dashboard.php";
 ?>
-<div class="container">
+<div class="container mt-5">
   <h1 class="text-danger text-center"><b>List of Books</b></h1>
 </div>
 <hr>
@@ -42,7 +42,7 @@
             <a href="index.php?action=delete&id=<?php echo $result['book_id']; ?>"><i class="material-icons text-danger" onclick="return confirm('Are you sure you want to delete?');">delete</i></a>
           </td>
           <td>
-            <a href="index.php?action=booking" class="btn border-info text-info">Booking</a>
+            <a href="index.php?action=booking&id=<?php echo $result['book_id'];?>" class="btn border-info text-info">Booking</a>
           </td>
         </tr>
       </tbody>

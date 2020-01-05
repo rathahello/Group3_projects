@@ -1,5 +1,5 @@
-<?php  
-  include "dasboard/dasboard.php";
+<?php 
+  include "dashboard/dashboard.php";
 ?>
 <div class="container mt-5">
   <div class="row">
@@ -10,8 +10,8 @@
           <h3><b>Form Booking</b></h3>
         </div>
         <div class="card-body">
+        
           <form action="index.php?action=form_booking" method="post" enctype="multipart/form-data">
-
             <div class="form-group">
               <label for="">Username:</label>
               <input type="text" name="username" class="form-control" placeholder="Username...">
@@ -29,23 +29,17 @@
               <label for="">E-mail:</label>
               <input type="email" name="email" id="email" class="form-control" placeholder="E-mail...">
             </div>
-
+            <?php 
+            foreach($data['booking'] as $row) {
+          ?>
+            <div class="form-group">
+              <label for="">Book Name</label>
+              <input type="hidden" name="id" value="<?php echo $row['book_id']; ?>">
+              <input type="text" name="book" id="book" value="<?php echo $row['title'] ?>" class="form-control">
+            </div>
             <?php
-            // $id = 1;
-            
-              // foreach ($data['detail'] as $result) {
+             }
             ?>
-
-                <div class="form-group">
-                  <label for="">Book Name:</label>
-                  <input type="text" name="book" id="book" value="<?php echo $result['title'] ?>" class="form-control" placeholder="Book...">
-                </div>
-
-            
-          <?php
-              // }
-            
-              ?>
 
             <div class="form-group">
               <label for="">Start Date:</label>
@@ -60,6 +54,7 @@
             <a href="index.php?action=view" class="btn btn-warning">Go Back</a>
             <button type="submit" class="btn btn-success float-right">Submit</button>
           </form>
+          
         </div>
       </div>
     </div>

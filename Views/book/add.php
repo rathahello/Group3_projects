@@ -1,7 +1,7 @@
 <?php  
-  include "dasboard/dasboard.php";
+  include "dashboard/dashboard.php";
 ?>
-<div class="container">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6">
