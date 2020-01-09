@@ -2,11 +2,12 @@
   include "dashboard/dashboard.php";
 ?>
 
-<div class="container">
-<h1 class="text-center text-danger">List of users</h1>
+<div class="container mt-5">
+<h1 class="text-center text-danger"><b>List of users</b></h1>
     <hr>
+    <br>
 <table class="table table-bordered mt-3">
-  <thead>
+  <thead class="bg-success">
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Fullname</th>
